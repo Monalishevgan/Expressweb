@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{>header}}
+</head>
+<body>
+    {{>navbar}}
+
+    <!-- main_header  -->
+    <div class="container-fluid main_header">
+        <div class="row">
+            <div class="col-md-10 col-12 mx-auto">
+                 <div class="row">
+                    <div class="col-md-6 col-12 main_header_right mt-4 align-items-center">
+                        <figure>
+                            <img src="images/user.png" alt="about" class="img-fluid" title="about">
+                        </figure>
+                    </div>
+                    <div class="col-md-6 col-12 main_header_left mt-4">
+                         <p>Welcome to weather app</p>
+                         <h4>I"m <span class="clr-text">Mern Stack Developer</span></h4>
+                         <a href="/about" target="_blank"><button class="btn btn-primary">About Me</button></a>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </div>  
+    
+    <!-- foote -->
+     {{>footer}}
+</body>
+</html>

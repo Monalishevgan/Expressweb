@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{>header}}  
+</head>
+<body>
+    {{>navbar}}
+
+    <!-- main_header  -->
+    <div class="container-fluid main_header">
+        <div class="row">
+            <div class="col-md-10 col-12 mx-auto">
+                 <div class="row">
+                    <div class="col-3"></div>
+                    <div class="col-md-6  mt-4 text-center">
+                        <form id="temp">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Recipient's username" id="cityname" autocomplete="off">
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-primary">Search</button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="row templateinfo card" >
+                            <div class="card-body" style="background-color: rgb(194, 224, 181); color:black">
+                                <div class="top-layer">
+                                    <p id="error_msg">Get Result</p>
+                                    <div style="font-size: 18px;" class="hide-class hide"> 
+                                        {{!-- <h5 id="day"></h5> --}}
+                                        <h5 id="today_date"></h5>
+                                        <h5 id="city_name"></h5>
+                                        
+                                        <span id="temp_deg"></span> 
+                                        <span> <sup>o</sup>C  </span>    
+                                        <span id="temp_status"><span> </span></span>                            
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3"></div>
+                 </div>
+            </div>
+        </div>
+    </div>  
+    
+    <!-- foote -->
+    {{>footer}}
+
+    <script src="js/main.js"></script>
+    <script>
+        let today_date = document.getElementById("today_date");
+        const getCurrentDate = () =>{
+            let currentTime= new Date();
+            var weekday = new Array(7);
+            weekday[0]=  "Sunday";
+            weekday[1] = "Monday";
+            weekday[2] = "Tuesday";
+            weekday[3] = "Wednesday";
+            weekday[4] = "Thursday";
+            weekday[5] = "Friday";
+            weekday[6] = "Saturday";
+
+           var day = weekday[currentTime.getDay()];
+
+           return day;
+           //console.log(day);
+       
+        }
+
+        const getCurrentTime=()=>{
+            let now= new Date();
+            const months = [
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December"
+            ];
+            var month=months[now.getMonth()+1];
+            var date= now.getDate();
+
+            //var year=now.getFullYear();
+
+            var hrous=now.getHours();
+            var mins=now.getMinutes();
+            var periods="AM";
+            if(periods > 11){
+                periods="PM";
+                if(hrous > 12)
+                hrous -=12;
+            };
+
+            if(mins <10){
+                mins ="0"+mins;
+            };
+
+            //console.log(month+ '/' + day);
+
+            return `${month} ${date} | ${hrous}:${mins} ${periods}`;
+        }
+
+        getCurrentTime();
+        getCurrentDate();
+
+        today_date.innerHTML = getCurrentTime() + " | " + getCurrentDate();
+    </script>
+    
+</body>
+</html>
