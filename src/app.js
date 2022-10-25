@@ -37,7 +37,7 @@ app.get("/weather", (req,res) => {
 
 app.get("*", (req,res) => {
     res.render("error",{
-        errorMsg:"Woops, Looks like this page doesn't exit."
+        errorMsg:"Woops, Looks like this page doesn't exit. hhhhhhhhhh"
     });
 });
 
